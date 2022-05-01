@@ -1,0 +1,2 @@
+# practice_next_typescript
+TypeScriptを利用してnext.jsに触れてみるリポジトリ
