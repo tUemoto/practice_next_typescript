@@ -1,6 +1,11 @@
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
+// import { useRouter } from 'next/router'
 const Article = ({ article }: { article: BlogPost }) => {
+  // urlに含まれる変数を取得する場合は下記を利用すると良い
+  //   const router = useRouter()
+  //   const { id } = router.query
+
   return (
     <>
       <h1>{article.title}</h1>
