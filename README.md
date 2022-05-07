@@ -1,3 +1,5 @@
+**これは[Next.js Crash Course](https://www.youtube.com/watch?v=mTz0GXj8NN0)を参考に作成したものです。**
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
