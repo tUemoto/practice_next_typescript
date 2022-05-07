@@ -1,5 +1,6 @@
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
+import { server } from '../../../config'
 // import { useRouter } from 'next/router'
 const Article = ({ article }: { article: BlogPost }) => {
   // urlに含まれる変数を取得する場合は下記を利用すると良い
@@ -47,10 +48,31 @@ const Article = ({ article }: { article: BlogPost }) => {
  * ビルド時に実行するので表示が早い。
  * SEOを気にする場合はこちらを利用する
  */
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   const res = await fetch(
+//     `https://jsonplaceholder.typicode.com/posts/${context?.params?.id}`,
+//   )
+
+//   const article: BlogPost = await res.json()
+//   return {
+//     props: { article },
+//   }
+// }
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/`)
+//   const articles: BlogPost[] = await res.json()
+
+//   const ids = articles.map((article) => article.id)
+//   const paths = ids.map((id) => ({ params: { id: id.toString() } }))
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
+
 export const getStaticProps: GetStaticProps = async (context) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${context?.params?.id}`,
-  )
+  const res = await fetch(`${server}/api/articles/${context?.params?.id}`)
 
   const article: BlogPost = await res.json()
   return {
@@ -59,7 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/`)
+  const res = await fetch(`${server}/api/articles/`)
   const articles: BlogPost[] = await res.json()
 
   const ids = articles.map((article) => article.id)
