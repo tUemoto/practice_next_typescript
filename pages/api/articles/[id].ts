@@ -1,4 +1,4 @@
-import { articles } from '../../data'
+import { articles } from '../../../data'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default function handler(
