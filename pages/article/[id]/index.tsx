@@ -1,14 +1,16 @@
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
+import Meta from '../../../components/Mata'
 import { server } from '../../../config'
 // import { useRouter } from 'next/router'
-const Article = ({ article }: { article: BlogPost }) => {
+const Article = ({ article }: { article: Article }) => {
   // urlに含まれる変数を取得する場合は下記を利用すると良い
   //   const router = useRouter()
   //   const { id } = router.query
 
   return (
     <>
+      <Meta title={article.title} description={article.excerpt}></Meta>
       <h1>{article.title}</h1>
       <p>{article.body}</p>
       <br />
