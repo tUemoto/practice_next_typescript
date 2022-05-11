@@ -23,7 +23,10 @@ export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${server}/api/articles`)
-  const articles = await res.json()
+  let articles: BlogPost[] = []
+  if (res.status === 200) {
+    articles = await res.json()
+  }
 
   return {
     props: { articles },

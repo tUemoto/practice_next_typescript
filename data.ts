@@ -1,4 +1,4 @@
-export const articles = [
+export const articles: Article[] = [
   {
     id: '1',
     title: 'GitHub introduces dark mode and auto-merge pull request',
